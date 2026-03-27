@@ -3,14 +3,20 @@
 <head>
 <title>Czerynne's Little Museum</title>
 <meta charset="utf-8">
-<!--Assignment 3: Czerynne's Personal Website-->
-  <style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400..700&family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+
+<style>
+
   h1 {
       margin: 0;
       text-align: center;
       padding-top: 50px;
       padding-bottom: 25px;
-      padding-left: 0;
       font-size: 2.5em;
       font-family: "Fredoka", sans-serif;
       color: rgb(255, 130, 172);
@@ -18,9 +24,7 @@
   
     nav {
       font-family: "AR One Sans", sans-serif;
-      font-optical-sizing: auto;
-      font-weight: 400;
-      font-style: normal;
+      text-align: center;
     }
     
     a {
@@ -42,36 +46,22 @@
     }
     
     div {
-    margin: 25px;
-    text-align: left;
+      margin: 25px;
+      text-align: left;
     }
     
     li {
-    display: inline-block;
-    margin-right: 20px;
+      display: inline-block;
+      margin-right: 20px;
+      list-style: none;
     }
     
     #section0, #section1, #section2, #section3, #section4 {
-    height: 1000px;
+      height: 1000px;
+      background-color: white;
     }
 
-    #section0 {
-      background-color: rgb(255, 255, 255);
-    }
-    #section1 {
-      background-color: rgb(255, 255, 255);
-    }
-    #section2 {
-      background-color: rgb(255, 255, 255);
-    }
-      #section3 {
-      background-color: rgb(255, 255, 255);
-    }
-      #section4 {
-      background-color: rgb(255, 255, 255);
-    }
-
-     .container {
+    .container {
         display: grid;
         grid-template-columns: 40% 60%;
         background-color: rgb(255, 247, 230);
@@ -84,38 +74,56 @@
         text-align: right;
     }
 
+    /* ✅ RESPONSIVE DESIGN */
+
+    /* MOBILE (under 600px) */
+    @media screen and (max-width: 600px) {
+      body {
+        background-color: white;
+        font-size: 0.75em;
+      }
+
+      img, p {
+        width: 100%;
+      }
+
+      .container {
+        grid-template-columns: 100%;
+      }
+    }
+
+    /* DESKTOP (600px and up) */
+    @media screen and (min-width: 600px) {
+      img {
+        width: 800px;
+      }
+
+      p {
+        width: 600px;
+      }
+    }
+
 </style>
 </head>
-  
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400..700&family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
 
 <body>
   <h1>Czerynne's Little Museum</h1>
+
   <nav>
-  <li><a href="#section0">Home</a></li>
-  <li><a href="#section1">Figurine Friends</a></li>
-  <li><a href="#section2">Miscellaneous</a></li>
-  <li><a href="#section3">Fluffy Pegboard</a></li>
-  <li><a href="#section4">Media</a></li>
+    <ul>
+      <li><a href="#section0">Home</a></li>
+      <li><a href="#section1">Figurine Friends</a></li>
+      <li><a href="#section2">Miscellaneous</a></li>
+      <li><a href="#section3">Fluffy Pegboard</a></li>
+      <li><a href="#section4">Media</a></li>
+    </ul>
   </nav>
 
-<div id="section0">
-Home
-</div>
-<div id="section1">
-Figurine Friends
-</div>
-<div id="section2">
-Miscellaneous
-</div>
-<div id="section3">
-Fluffy Pegboard
-</div>
-<div id="section4">
-Media
-</div>
+  <div id="section0">Home</div>
+  <div id="section1">Figurine Friends</div>
+  <div id="section2">Miscellaneous</div>
+  <div id="section3">Fluffy Pegboard</div>
+  <div id="section4">Media</div>
     
 </body>
 </html>
