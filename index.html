@@ -1,129 +1,868 @@
 <!DOCTYPE html>
 <html lang="en-ca">
 <head>
-<title>Czerynne's Little Museum</title>
-<meta charset="utf-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400..700&family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
-
-<style>
-
-  h1 {
-      margin: 0;
-      text-align: center;
-      padding-top: 50px;
-      padding-bottom: 25px;
-      font-size: 2.5em;
-      font-family: "Fredoka", sans-serif;
-      color: rgb(255, 130, 172);
-    }
-  
-    nav {
-      font-family: "AR One Sans", sans-serif;
-      text-align: center;
-    }
-    
-    a {
-        color: rgb(0, 0, 0);
-        text-decoration: none;
+  <title>Czerynne's Little Museum</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Nunito:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink: #f9a8c9;
+      --pink-light: #fde8f1;
+      --pink-mid: #f7c5da;
+      --cream: #fff8f0;
+      --cream-dark: #f5e6d3;
+      --brown: #c4956a;
+      --brown-dark: #8b5e3c;
+      --text: #4a3728;
+      --text-light: #9c7060;
+      --white: #fffcfa;
     }
 
-    a:hover {
-        background-color: rgb(255, 204, 230);
-        font-size: 18px;
-    }
-    
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
     body {
-        margin: 0;
-        text-align: center;
-        color: rgb(0, 0, 0); 
-        font-size: 1em;
-        font-family: "AR One Sans", sans-serif;
+      font-family: "Nunito", sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      font-size: 1em;
     }
-    
-    div {
-      margin: 25px;
-      text-align: left;
+
+    header {
+      background: var(--pink-light);
+      padding: 40px 20px 20px;
+      text-align: center;
+      border-bottom: 3px solid var(--pink-mid);
     }
-    
-    li {
-      display: inline-block;
-      margin-right: 20px;
+
+    h1 {
+      font-family: "Fredoka", sans-serif;
+      font-size: clamp(2.2em, 6vw, 3.8em);
+      font-weight: 600;
+      color: var(--pink);
+      letter-spacing: 1px;
+    }
+
+    .header-tagline {
+      font-size: 1em;
+      color: var(--text-light);
+      margin-top: 6px;
+    }
+
+    nav {
+      background: var(--white);
+      border-bottom: 2px solid var(--pink-mid);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
       list-style: none;
     }
-    
-    #section0, #section1, #section2, #section3, #section4 {
-      height: 1000px;
-      background-color: white;
+
+    nav li { display: block; }
+
+    nav a {
+      display: block;
+      padding: 14px 20px;
+      font-family: "Fredoka", sans-serif;
+      font-size: 1.05em;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 3px solid transparent;
+      transition: background 0.2s, color 0.2s;
     }
 
-    .container {
-        display: grid;
-        grid-template-columns: 40% 60%;
-        background-color: rgb(255, 247, 230);
-        padding: 15px;
-        gap: 20px;
-    }
-  
-    .container div {
-        padding: 30px;
-        text-align: right;
+    nav a:hover {
+      background: var(--pink-light);
+      color: #c2507a;
+      border-bottom: 3px solid var(--pink);
     }
 
-    /* ✅ RESPONSIVE DESIGN */
+    nav a:visited { color: var(--text); }
 
-    /* MOBILE (under 600px) */
-    @media screen and (max-width: 600px) {
-      body {
-        background-color: white;
-        font-size: 0.75em;
-      }
-
-      img, p {
-        width: 100%;
-      }
-
-      .container {
-        grid-template-columns: 100%;
-      }
+    nav a:active {
+      background: var(--pink-mid);
+      color: #a03060;
     }
 
-    /* DESKTOP (600px and up) */
-    @media screen and (min-width: 600px) {
-      img {
-        width: 800px;
-      }
-
-      p {
-        width: 600px;
-      }
+    section {
+      min-height: 100vh;
+      padding: 60px 20px;
     }
 
-</style>
+    .section-title {
+      font-family: "Fredoka", sans-serif;
+      font-size: clamp(1.8em, 4vw, 2.6em);
+      color: var(--pink);
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .section-subtitle {
+      font-size: 1em;
+      color: var(--text-light);
+      font-style: italic;
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+
+    #section0 { background: var(--cream); }
+
+    .corkboard {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #c8a070;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23c8a070'/%3E%3Crect x='0' y='0' width='2' height='2' fill='%23b8935f' opacity='0.4'/%3E%3Crect x='2' y='2' width='2' height='2' fill='%23d4aa80' opacity='0.3'/%3E%3C/svg%3E");
+      border-radius: 6px;
+      padding: 40px;
+      border: 8px solid #b08050;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 26px;
+    }
+
+    .pin-card {
+      background: var(--white);
+      padding: 16px 14px 20px;
+      border-radius: 2px;
+      position: relative;
+      transform: rotate(var(--rot, -2deg));
+      transition: transform 0.2s;
+    }
+
+    .pin-card:hover { transform: rotate(0deg) scale(1.04); z-index: 10; }
+
+    .pin-card::before {
+      content: "";
+      width: 13px; height: 13px;
+      background: #ff8aaa;
+      border-radius: 50%;
+      position: absolute;
+      top: -7px; left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .pin-card h3 {
+      font-family: "Fredoka", sans-serif;
+      font-size: 1.05em;
+      color: #c2507a;
+      margin-bottom: 8px;
+    }
+
+    .pin-card p {font-size: 0.87em; color: var(--text); line-height: 1.6;}
+
+    .pin-card.yellow {background: #fffde0;}
+    .pin-card.pink {background: #fdeef5;}
+    .pin-card.mint {background: #e8faf3;}
+    .pin-card.lavender {background: #f0eeff;}
+    .pin-card.blue {background: #e8f4ff;}
+
+    .pin-photo {
+      background: white;
+      padding: 8px 8px 28px;
+      transform: rotate(var(--rot, 3deg));
+      transition: transform 0.2s;
+      position: relative;
+    }
+
+    .pin-photo:hover {transform: rotate(0deg) scale(1.04); z-index: 10;}
+
+    .pin-photo::before {
+      content: "";
+      width: 13px; height: 13px;
+      background: #ffd080;
+      border-radius: 50%;
+      position: absolute;
+      top: -7px; left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .pin-photo img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    .pin-photo .photo-caption {
+      font-size: 0.82em;
+      color: var(--text-light);
+      text-align: center;
+      padding-top: 6px;
+    }
+
+    .float-left {
+      float: left;
+      margin: 0 20px 10px 0;
+    }
+
+    .collection-table {
+      width: 100%;
+      max-width: 700px;
+      margin: 40px auto 0;
+      border-collapse: collapse;
+      font-size: 0.95em;
+    }
+
+    .collection-table caption {
+      font-family: "Fredoka", sans-serif;
+      font-size: 1.3em;
+      color: var(--pink);
+      margin-bottom: 12px;
+    }
+
+    .collection-table th {
+      background: var(--pink-mid);
+      color: var(--text);
+      padding: 10px 16px;
+      text-align: left;
+      font-family: "Fredoka", sans-serif;
+      font-weight: 500;
+      border: 2px solid var(--pink);
+    }
+
+    .collection-table td {
+      padding: 9px 16px;
+      border: 1px solid var(--cream-dark);
+      background: var(--white);
+    }
+
+    .collection-table tr:nth-child(even) td {background: var(--pink-light);}
+
+
+    #section1 {background: var(--cream-dark); =}
+
+    .bookcase {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #e8c9a0;
+      border-radius: 8px;
+      padding: 20px;
+      border: 4px solid #c4956a;
+      position: relative;
+    }
+
+    .bookcase::before, .bookcase::after {
+      content: "";
+      position: absolute;
+      top: 0; bottom: 0; width: 20px;
+      background: #b08050;
+      border-radius: 4px 0 0 4px;
+    }
+    .bookcase::before { left: 0; }
+    .bookcase::after  { right: 0; border-radius: 0 4px 4px 0; }
+
+    .shelf-row {
+      background: #c4956a;
+      border-radius: 4px 4px 0 0;
+      margin: 0 20px 16px;
+      padding: 16px 20px 12px;
+      box-shadow: 0 10px 0 #8b5e3c;
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+      min-height: 110px;
+      flex-wrap: wrap;
+    }
+
+    .shelf-row::after { display: none; }
+
+    .figurine {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 6px;
+      transition: transform 0.2s; cursor: default;
+    }
+
+    .figurine:hover {transform: translateY(-6px);}
+
+    .figurine img {
+      width: 80px; height: 100px;
+      object-fit: contain;
+    }
+
+    .figurine-label {
+      font-size: 0.82em;
+      color: var(--cream);
+      text-align: center;
+      max-width: 90px;
+    }
+
+    #section2 {background: var(--pink-light);}
+
+    .misc-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .misc-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .misc-item img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      border: 3px solid var(--pink-mid);
+      border-radius: 4px;
+    }
+
+    .misc-caption {
+      font-size: 0.9em;
+      color: var(--text);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    #section3 {background: var(--cream);}
+
+    .pegboard-wrapper {max-width: 860px; margin: 0 auto;}
+
+    .pegboard {
+      background: #f9f0e6;
+      background-image: radial-gradient(circle, #d4b896 2px, transparent 2px);
+      background-size: 32px 32px;
+      border: 4px solid #d4b896;
+      border-radius: 8px;
+      padding: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 24px;
+    }
+
+    .peg-item {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 6px;
+      cursor: default; transition: transform 0.2s;
+    }
+
+    .peg-item:hover {transform: translateY(-8px);}
+
+    .peg-item::before {
+      content: "";
+      width: 3px; height: 18px;
+      background: #b08050;
+      border-radius: 2px 2px 0 0;
+      margin-bottom: -4px;
+    }
+
+    .peg-item img {
+      width: 90px; height: 90px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .peg-label {
+      font-size: 0.82em;
+      color: var(--text);
+      text-align: center;
+    }
+
+    #section4 { background: var(--pink-light); }
+
+    .gallery-wall {
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .gallery-frame {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: transform 0.2s;
+    }
+
+    .gallery-frame:hover { transform: scale(1.02); }
+
+    .frame-outer {
+      background: #c4956a;
+      padding: 8px;
+      border-radius: 3px;
+    }
+
+    .frame-inner {
+      background: var(--cream);
+      padding: 6px;
+    }
+
+    .frame-image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+    }
+
+    .frame-caption {
+      font-size: 0.88em;
+      color: var(--text-light);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.95em;
+      color: var(--text-light);
+      background: var(--cream-dark);
+      border-top: 2px solid var(--pink-mid);
+      line-height: 2;
+    }
+
+    footer a {
+      color: #c2507a;
+      text-decoration: none;
+      font-family: "Nunito", sans-serif;
+    }
+
+    footer a:hover { text-decoration: underline; }
+    footer a:visited { color: var(--text-light); }
+    footer a:active { color: var(--brown-dark); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .misc-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+      .gallery-wall { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+      .corkboard { grid-template-columns: 1fr 1fr; gap: 16px; padding: 24px 16px; }
+      nav a { padding: 10px 12px; font-size: 0.9em; }
+    }
+  </style>
 </head>
-
 <body>
-  <h1>Czerynne's Little Museum</h1>
+
+  <header>
+    <h1>Czerynne's Little Museum</h1>
+    <p class="header-tagline">a collection of the little things that bring me joy!</p>
+  </header>
 
   <nav>
     <ul>
-      <li><a href="#section0">Home</a></li>
-      <li><a href="#section1">Figurine Friends</a></li>
+      <li><a href="#section0">Welcome</a></li>
+      <li><a href="#section1">Figurine Shelf</a></li>
       <li><a href="#section2">Miscellaneous</a></li>
-      <li><a href="#section3">Fluffy Pegboard</a></li>
-      <li><a href="#section4">Media</a></li>
+      <li><a href="#section3">The Pegboard</a></li>
+      <li><a href="#section4">Photo Gallery</a></li>
     </ul>
   </nav>
 
-  <div id="section0">Home</div>
-  <div id="section1">Figurine Friends</div>
-  <div id="section2">Miscellaneous</div>
-  <div id="section3">Fluffy Pegboard</div>
-  <div id="section4">Media</div>
-    
-</body>
-</html>
+  <section id="section0">
+    <h2 class="section-title">The Welcome Cork Board</h2>
+    <p class="section-subtitle">some quick notes to look at before your tour</p>
+
+    <div class="corkboard">
+
+      <div class="pin-card pink" style="--rot: -2deg">
+        <h3>Welcome to my museum!</h3>
+        <p>This is my little corner of the internet where I keep track of my steadily-growing collection of collections.</p>
+        <p><br>Enjoy the stroll!</p>
+      </div>
+
+      <div class="pin-card yellow" style="--rot: 2deg">
+        <h3>More about this museum</h3>
+        <p>I'm an avid collector of anything that I think is cute...</p>
+        <p><br>which ended me up here!</p>
+        <p><i>(I am a victim of consumerism)</i></p>
+        <p><br>You'll find a lot of collectibles and figurines here.</p>
+      </div>
+
+      <div class="pin-photo" style="--rot: -2deg">
+        <img src="cork-photo1.jpg" alt="My current favourite figurine, Adelaide" width="180" height="180">
+        <div class="photo-caption">My current favourite figurine! her name is Adelaide :)</div>
+      </div>
+
+      <div class="pin-card mint" style="--rot: 3deg">
+        <h3>My current fixations</h3>
+        <p>I've been really into Calico Critters/Sylvanian Families as of late.</p>
+        <p><br>Who wouldn't like little adorable fuzzy animal collectibles???</p>
+      </div>
+
+      <div class="pin-card lavender" style="--rot: -1deg">
+        <h3>Not just random things collecting dust...</h3>
+        <p>Every single thing featured in this museum has a backstory or some sort of special meaning!</p>
+        <p><br>Curious about anything? Just ask!</p>
+      </div>
+
+      <div class="pin-photo" style="--rot: 2deg">
+        <img src="cork-photo2.jpg" alt="Coffee Sonny Angel in my 20th birthday tiramisu cake" width="180" height="180">
+        <div class="photo-caption">Coffee Sonny Angel in my 20th birthday tiramisu cake!</div>
+      </div>
+
+    </div>
+
+    <div style="max-width: 900px; margin: 40px auto 0; overflow: hidden;">
+      <img src="figurine1.png" alt="A figurine from the collection" width="120" height="150" class="float-left">
+      <table class="collection-table">
+        <caption>Museum Collection at a Glance</caption>
+        <tr>
+          <th>Category</th>
+          <th>Number of Items</th>
+          <th>Favourite</th>
+        </tr>
+        <tr>
+          <td>Figurine Shelf</td>
+          <td>12</td>
+          <td>Adelaide</td>
+        </tr>
+        <tr>
+          <td>Miscellaneous</td>
+          <td>6</td>
+          <td>Kpop Photocards</td>
+        </tr>
+        <tr>
+          <td>The Pegboard</td>
+          <td>20+</td>
+          <td>My fluffy charms</td>
+        </tr>
+        <tr>
+          <td>Photo Gallery</td>
+          <td>18</td>
+          <td>All of them!</td>
+        </tr>
+      </table>
+    </div>
+
+  </section>
+
+  <section id="section1">
+    <h2 class="section-title">Figurine Shelf</h2>
+    <p class="section-subtitle">little friends that live on my shelf</p>
+
+    <div class="bookcase">
+
+      <div class="shelf-row">
+        <div class="figurine">
+          <img src="figurine1.png" alt="Figurine 1" width="80" height="100">
+          <span class="figurine-label">figurine 1</span>
+        </div>
+        <div class="figurine">
+          <img src="figurine2.png" alt="Figurine 2" width="80" height="100">
+          <span class="figurine-label">figurine 2</span>
+        </div>
+        <div class="figurine">
+          <img src="figurine3.png" alt="Figurine 3" width="80" height="100">
+          <span class="figurine-label">figurine 3</span>
+        </div>
+        <div class="figurine">
+          <img src="figurine4.png" alt="Figurine 4" width="80" height="100">
+          <span class="figurine-label">figurine 4</span>
+        </div>
+        <div class="figurine">
+          <img src="figurine5.png" alt="Figurine 5" width="80" height="100">
+          <span class="figurine-label">figurine 5</span>
+        </div>
+      </div>
+
+      <div class="shelf-row">
+        <div class="figurine">
+          <img src="figurine6.png" alt="Figurine 6" width="80" height="100">
+          <span class="figurine-label">figurine 6</span>
+        </div>
+        <div class="figurine">
+          <img src="figurine7.png" alt="Figurine 7" width="80" height="100">
+          <span class="figurine-label">figurine 7</span>
+        </div>
+        <div class="figurine">
+          <img src="figurine8.png" alt="Figurine 8" width="80" height="100">
+          <span class="figurine-label">figurine 8</span>
+        </div>
+        <div class="figurine">
+          <img src="figurine9.png" alt="Figurine 9" width="80" height="100">
+          <span class="figurine-label">figurine 9</span>
+        </div>
+      </div>
+
+      <div class="shelf-row">
+        <div class="figurine">
+          <img src="figurine10.png" alt="Figurine 10" width="80" height="100">
+          <span class="figurine-label">figurine 10</span>
+        </div>
+        <div class="figurine">
+          <img src="figurine11.png" alt="Figurine 11" width="80" height="100">
+          <span class="figurine-label">figurine 11</span>
+        </div>
+        <div class="figurine">
+          <img src="figurine12.png" alt="Figurine 12" width="80" height="100">
+          <span class="figurine-label">figurine 12</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="section2">
+    <h2 class="section-title">Miscellaneous</h2>
+    <p class="section-subtitle">some other things I collect</p>
+
+    <div class="misc-grid">
+
+      <div class="misc-item">
+        <img src="misc1.jpg" alt="Bunny plushies" width="240" height="180">
+        <p class="misc-caption">bunny plushies<br><i>(they're my favourite animal)</i></p>
+      </div>
+
+      <div class="misc-item">
+        <img src="misc2.jpg" alt="Kpop photocards" width="240" height="180">
+        <p class="misc-caption">kpop photocards — I have<br>over 80 of them</p>
+      </div>
+
+      <div class="misc-item">
+        <img src="misc3.jpg" alt="Pokemon cards" width="240" height="180">
+        <p class="misc-caption">pokemon cards! I used to have a lot<br>more when I was younger :(</p>
+      </div>
+
+      <div class="misc-item">
+        <img src="misc4.jpg" alt="Bag pins" width="240" height="180">
+        <p class="misc-caption">bag pins! a fun way to<br>personalize my bag</p>
+      </div>
+
+      <div class="misc-item">
+        <img src="misc5.jpg" alt="Cute stickers" width="240" height="180">
+        <p class="misc-caption">cute stickers!!! I put them<br>on everything</p>
+      </div>
+
+      <div class="misc-item">
+        <img src="misc6.jpg" alt="Kpop albums" width="240" height="180">
+        <p class="misc-caption">kpop albums/CDs</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="section3">
+    <h2 class="section-title">The Pegboard</h2>
+    <p class="section-subtitle">all of my fluffy bag charms in one place</p>
+
+    <div class="pegboard-wrapper">
+      <div class="pegboard">
+
+        <div class="peg-item">
+          <img src="charm1.png" alt="Bag charm 1" width="90" height="90">
+          <span class="peg-label">charm 1</span>
+        </div>
+        <div class="peg-item">
+          <img src="charm2.png" alt="Bag charm 2" width="90" height="90">
+          <span class="peg-label">charm 2</span>
+        </div>
+        <div class="peg-item">
+          <img src="charm3.png" alt="Bag charm 3" width="90" height="90">
+          <span class="peg-label">charm 3</span>
+        </div>
+        <div class="peg-item">
+          <img src="charm4.png" alt="Bag charm 4" width="90" height="90">
+          <span class="peg-label">charm 4</span>
+        </div>
+        <div class="peg-item">
+          <img src="charm5.png" alt="Bag charm 5" width="90" height="90">
+          <span class="peg-label">charm 5</span>
+        </div>
+        <div class="peg-item">
+          <img src="charm6.png" alt="Bag charm 6" width="90" height="90">
+          <span class="peg-label">charm 6</span>
+        </div>
+        <div class="peg-item">
+          <img src="charm7.png" alt="Bag charm 7" width="90" height="90">
+          <span class="peg-label">charm 7</span>
+        </div>
+        <div class="peg-item">
+          <img src="charm8.png" alt="Bag charm 8" width="90" height="90">
+          <span class="peg-label">charm 8</span>
+        </div>
+        <div class="peg-item">
+          <img src="charm9.png" alt="Bag charm 9" width="90" height="90">
+          <span class="peg-label">charm 9</span>
+        </div>
+        <div class="peg-item">
+          <img src="charm10.png" alt="Bag charm 10" width="90" height="90">
+          <span class="peg-label">charm 10</span>
+        </div>
+        <div class="peg-item">
+          <img src="charm11.png" alt="Bag charm 11" width="90" height="90">
+          <span class="peg-label">charm 11</span>
+        </div>
+        <div class="peg-item">
+          <img src="charm12.png" alt="Bag charm 12" width="90" height="90">
+          <span class="peg-label">charm 12</span>
+        </div>
+        <div class="peg-item">
+          <img src="charm13.png" alt="Bag charm 13" width="90" height="90">
+          <span class="peg-label">charm 13</span>
+        </div>
+        <div class="peg-item">
+          <img src="charm14.png" alt="Bag charm 14" width="90" height="90">
+          <span class="peg-label">charm 14</span>
+        </div>
+        <div class="peg-item">
+          <img src="charm15.png" alt="Bag charm 15" width="90" height="90">
+          <span class="peg-label">charm 15</span>
+        </div>
+        <div class="peg-item">
+          <img src="charm16.png" alt="Bag charm 16" width="90" height="90">
+          <span class="peg-label">charm 16</span>
+        </div>
+        <div class="peg-item">
+          <img src="charm17.png" alt="Bag charm 17" width="90" height="90">
+          <span class="peg-label">charm 17</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="section4">
+    <h2 class="section-title">Photo Gallery</h2>
+    <p class="section-subtitle">pieces of my collection in different places</p>
+
+    <div class="gallery-wall">
+
+      <div class="gallery-frame">
+        <div class="frame-outer"><div class="frame-inner">
+          <img src="media1.jpg" alt="Konpeito Sonny Angel at San Juan Beach, Philippines" width="240" height="180" class="frame-image">
+        </div></div>
+        <p class="frame-caption">Konpeito Sonny Angel at San Juan Beach, Philippines.</p>
+      </div>
+
+      <div class="gallery-frame">
+        <div class="frame-outer"><div class="frame-inner">
+          <img src="media2.jpg" alt="Sonny Angels helping me run my business stand" width="240" height="180" class="frame-image">
+        </div></div>
+        <p class="frame-caption">Sonny Angels helping me run my business stand.</p>
+      </div>
+
+      <div class="gallery-frame">
+        <div class="frame-outer"><div class="frame-inner">
+          <img src="media3.jpg" alt="Jellyfish Sonny Angel at P1Harmony's Utopia tour concert" width="240" height="180" class="frame-image">
+        </div></div>
+        <p class="frame-caption">Jellyfish Sonny Angel at P1Harmony's "Utopia" tour concert.</p>
+      </div>
+
+      <div class="gallery-frame">
+        <div class="frame-outer"><div class="frame-inner">
+          <img src="media4.jpg" alt="Jellyfish Sonny Angel at Ripley's Aquarium" width="240" height="180" class="frame-image">
+        </div></div>
+        <p class="frame-caption">Jellyfish Sonny Angel at Ripley's Aquarium.</p>
+      </div>
+
+      <div class="gallery-frame">
+        <div class="frame-outer"><div class="frame-inner">
+          <img src="media5.jpg" alt="Konpeito Sonny Angel at NCT 127's Neo City concert" width="240" height="180" class="frame-image">
+        </div></div>
+        <p class="frame-caption">Konpeito Sonny Angel at NCT 127's "Neo City — The Momentum" tour concert.</p>
+      </div>
+
+      <div class="gallery-frame">
+        <div class="frame-outer"><div class="frame-inner">
+          <img src="media6.jpg" alt="Sonny Angels and Calico Critters having matcha at a cafe" width="240" height="180" class="frame-image">
+        </div></div>
+        <p class="frame-caption">Sonny Angels and Calico Critters having matcha at a cafe.</p>
+      </div>
+
+      <div class="gallery-frame">
+        <div class="frame-outer"><div class="frame-inner">
+          <img src="media7.jpg" alt="Apple Sonny Angel at the Seoul N tower" width="240" height="180" class="frame-image">
+        </div></div>
+        <p class="frame-caption">Apple Sonny Angel at the Seoul N tower in Seoul, South Korea.</p>
+      </div>
+
+      <div class="gallery-frame">
+        <div class="frame-outer"><div class="frame-inner">
+          <img src="media8.jpg" alt="Popcorn Sonny Angel while studying for economics" width="240" height="180" class="frame-image">
+        </div></div>
+        <p class="frame-caption">Popcorn Sonny Angel accompanying me while I study for my economics exam.</p>
+      </div>
+
+      <div class="gallery-frame">
+        <div class="frame-outer"><div class="frame-inner">
+          <img src="media9.jpg" alt="Jellyfish Sonny Angel riding the TTC subway" width="240" height="180" class="frame-image">
+        </div></div>
+        <p class="frame-caption">Jellyfish Sonny Angel riding the TTC subway.</p>
+      </div>
+
+      <div class="gallery-frame">
+        <div class="frame-outer"><div class="frame-inner">
+          <img src="media10.jpg" alt="Konpeito Sonny Angel enjoying some drinks" width="240" height="180" class="frame-image">
+        </div></div>
+        <p class="frame-caption">Konpeito Sonny Angel enjoying some drinks.</p>
+      </div>
+
+      <div class="gallery-frame">
+        <div class="frame-outer"><div class="frame-inner">
+          <img src="media11.jpg" alt="Konpeito Sonny Angel and photocards at UW Kpop Club" width="240" height="180" class="frame-image">
+        </div></div>
+        <p class="frame-caption">Konpeito Sonny Angel and some photocards at UW Kpop Club.</p>
+      </div>
+
+      <div class="gallery-frame">
+        <div class="frame-outer"><div class="frame-inner">
+          <img src="media12.jpg" alt="Konpeito Sonny Angel at Everland theme park" width="240" height="180" class="frame-image">
+        </div></div>
+        <p class="frame-caption">Konpeito Sonny Angel at Everland, a theme park in South Korea.</p>
+      </div>
+
+      <div class="gallery-frame">
+        <div class="frame-outer"><div class="frame-inner">
+          <img src="media13.jpg" alt="Konpeito Sonny Angel at Taiwan Taoyuan International Airport" width="240" height="180" class="frame-image">
+        </div></div>
+        <p class="frame-caption">Konpeito Sonny Angel at the Taiwan Taoyuan International Airport.</p>
+      </div>
+
+      <div class="gallery-frame">
+        <div class="frame-outer"><div class="frame-inner">
+          <img src="media14.jpg" alt="Konpeito Sonny Angel at a Tiffany Day concert" width="240" height="180" class="frame-image">
+        </div></div>
+        <p class="frame-caption">Konpeito Sonny Angel at a Tiffany Day concert.</p>
+      </div>
+
+      <div class="gallery-frame">
+        <div class="frame-outer"><div class="frame-inner">
+          <img src="media15.jpg" alt="Sakura Hello Kitty Plush at a Blackpink concert" width="240" height="180" class="frame-image">
+        </div></div>
+        <p class="frame-caption">Sakura Hello Kitty Plush at a Blackpink concert.</p>
+      </div>
+
+      <div class="gallery-frame">
+        <div class="frame-outer"><div class="frame-inner">
+          <img src="media16.jpg" alt="Konpeito Sonny Angel at Meraki Garden, Philippines" width="240" height="180" class="frame-image">
+        </div></div>
+        <p class="frame-caption">Konpeito Sonny Angel at Meraki Garden, Philippines.</p>
+      </div>
+
+      <div class="gallery-frame">
+        <div class="frame-outer"><div class="frame-inner">
+          <img src="media17.jpg" alt="Rabbit Sonny Angel and Sakura Hello Kitty at a cafe in Seoul" width="240" height="180" class="frame-image">
+        </div></div>
+        <p class="frame-caption">Rabbit Sonny Angel and Sakura Hello Kitty at a cafe in Seoul, South Korea.</p>
+      </div>
+
+      <div class="gallery-frame">
+        <div class="frame-outer"><div class="frame-inner">
+          <img src="media18.jpg" alt="Konpeito Sonny Angel at a Thuy concert" width="240" height="180" class="frame-image">
+        </div></div>
+        <p class="frame-caption">Konpeito Sonny Angel at a Thuy concert.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>Made by Czerynne Santos</p>
+    <p>Email:</p>
+    <p>If you're seeing this, check out my small business @love.czerynne</p>
+  </footer>
