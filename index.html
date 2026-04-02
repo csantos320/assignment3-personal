@@ -29,6 +29,7 @@
       background-color: var(--cream);
       color: var(--text);
       font-size: 1em;
+      overflow-x: hidden;
     }
 
     header {
@@ -36,6 +37,7 @@
       padding: 40px 20px 20px;
       text-align: center;
       border-bottom: 3px solid var(--pink-mid);
+      width: 100%;
     }
 
     h1 {
@@ -97,6 +99,7 @@
     section {
       min-height: 100vh;
       padding: 60px 20px;
+      width: 100%;
     }
 
     .section-title {
@@ -352,14 +355,6 @@
 
     .peg-item:hover {transform: translateY(-8px);}
 
-    .peg-item::before {
-      content: "";
-      width: 3px; height: 18px;
-      background: #b08050;
-      border-radius: 2px 2px 0 0;
-      margin-bottom: -4px;
-    }
-
     .peg-item img {
       width: 150px; height: 150px;
       object-fit: contain;
@@ -580,7 +575,7 @@
       <div class="shelf-row">
         <div class="figurine">
           <img src="FloraRabbitTwins-removebg-preview.png" alt="Two floppy-eared white rabbit figurines, one is wearing purple and the other is wearing blue. The rabbit wearing purple is sitting in a pink toy car which the rabbit wearing blue is pushing. " width="80" height="100">
-          <span class="figurine-label">Runo & Viola</span>
+          <span class="figurine-label">Runo &amp; Viola</span>
         </div>
         <div class="figurine">
           <img src="AdelaideBerry-removebg-preview.png" alt="A koala figurine wearing a pink strawberry-themed dress and hat." width="80" height="100">
@@ -883,7 +878,6 @@
         </div></div>
         <p class="frame-caption">Konpeito Sonny Angel at a Thuy concert.</p>
       </div>
-
     </div>
   </section>
 
@@ -892,4 +886,6 @@
     <p>Email:</p>
     <p>If you're seeing this, check out my small business @love.czerynne</p>
   </footer>
+  
   </body>
+  </html>
