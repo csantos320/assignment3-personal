@@ -21,8 +21,8 @@
       --white: #fffcfa;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    *, *::before, *::after {box-sizing: border-box; margin: 0; padding: 0;}
+    html {scroll-behavior: smooth;}
 
     body {
       font-family: "Nunito", sans-serif;
@@ -67,7 +67,7 @@
       list-style: none;
     }
 
-    nav li { display: block; }
+    nav li {display: block;}
 
     nav a {
       display: block;
@@ -116,13 +116,12 @@
     }
 
 
-    #section0 { background: var(--cream); }
+    #section0 {background: var(--cream);}
 
     .corkboard {
       max-width: 900px;
       margin: 0 auto;
       background: #c8a070;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23c8a070'/%3E%3Crect x='0' y='0' width='2' height='2' fill='%23b8935f' opacity='0.4'/%3E%3Crect x='2' y='2' width='2' height='2' fill='%23d4aa80' opacity='0.3'/%3E%3C/svg%3E");
       border-radius: 6px;
       padding: 40px;
       border: 8px solid #b08050;
@@ -140,7 +139,7 @@
       transition: transform 0.2s;
     }
 
-    .pin-card:hover { transform: rotate(0deg) scale(1.04); z-index: 10; }
+    .pin-card:hover {transform: rotate(0deg) scale(1.04); z-index: 10;}
 
     .pin-card::before {
       content: "";
@@ -259,8 +258,8 @@
       background: #b08050;
       border-radius: 4px 0 0 4px;
     }
-    .bookcase::before { left: 0; }
-    .bookcase::after  { right: 0; border-radius: 0 4px 4px 0; }
+    .bookcase::before {left: 0;}
+    .bookcase::after  {right: 0; border-radius: 0 4px 4px 0;}
 
     .shelf-row {
       background: #c4956a;
@@ -275,7 +274,7 @@
       flex-wrap: wrap;
     }
 
-    .shelf-row::after { display: none; }
+    .shelf-row::after {display: none;}
 
     .figurine {
       display: flex; flex-direction: column;
@@ -373,7 +372,7 @@
       text-align: center;
     }
 
-    #section4 { background: var(--pink-light); }
+    #section4 {background: var(--pink-light);}
 
     .gallery-wall {
       max-width: 960px;
@@ -390,7 +389,7 @@
       transition: transform 0.2s;
     }
 
-    .gallery-frame:hover { transform: scale(1.02); }
+    .gallery-frame:hover {transform: scale(1.02);}
 
     .frame-outer {
       background: #c4956a;
@@ -433,16 +432,15 @@
       font-family: "Nunito", sans-serif;
     }
 
-    footer a:hover { text-decoration: underline; }
-    footer a:visited { color: var(--text-light); }
-    footer a:active { color: var(--brown-dark); }
+    footer a:hover {text-decoration: underline;}
+    footer a:visited {color: var(--text-light);}
+    footer a:active {color: var(--brown-dark);}
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
-      .misc-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-      .gallery-wall { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-      .corkboard { grid-template-columns: 1fr 1fr; gap: 16px; padding: 24px 16px; }
-      nav a { padding: 10px 12px; font-size: 0.9em; }
+      .misc-grid {grid-template-columns: repeat(2, 1fr); gap: 14px;}
+      .gallery-wall {grid-template-columns: repeat(2, 1fr); gap: 14px;}
+      .corkboard {grid-template-columns: 1fr 1fr; gap: 16px; padding: 24px 16px;}
+      nav a {padding: 10px 12px; font-size: 0.9em;}
     }
   </style>
 </head>
@@ -484,7 +482,7 @@
       </div>
 
       <div class="pin-photo" style="--rot: -2deg">
-        <img src="cork-photo1.jpg" alt="My current favourite figurine, Adelaide" width="180" height="180">
+        <img src="Adelaide.JPG" alt="My current favourite figurine, Adelaide" width="180" height="180">
         <div class="photo-caption">My current favourite figurine! her name is Adelaide :)</div>
       </div>
 
@@ -501,7 +499,7 @@
       </div>
 
       <div class="pin-photo" style="--rot: 2deg">
-        <img src="cork-photo2.jpg" alt="Coffee Sonny Angel in my 20th birthday tiramisu cake" width="180" height="180">
+        <img src="20Tiramisu.jpg" alt="Coffee Sonny Angel in my 20th birthday tiramisu cake" width="180" height="180">
         <div class="photo-caption">Coffee Sonny Angel in my 20th birthday tiramisu cake!</div>
       </div>
 
